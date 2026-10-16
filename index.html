@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Guia Video</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Guia Video">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script>if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js'));</script>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&amp;display=swap">
+<style>
+html{background:#000}
+body{margin:0;background:#000;overscroll-behavior:none}
+.app{width:100%;max-width:430px;height:100vh;height:100dvh;margin:0 auto;box-sizing:border-box;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+a{color:#fff}a:hover{color:#ddd}
+button{font-family:inherit;-webkit-tap-highlight-color:transparent}
+input::placeholder{color:#8e8f93}
+.hs{scrollbar-width:none}
+.hs::-webkit-scrollbar{display:none}
+@keyframes novoPulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.75);transform:scale(1)}50%{transform:scale(1.04)}70%{box-shadow:0 0 0 14px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0);transform:scale(1)}}
+.pulse{animation:novoPulse 1.8s ease-out infinite}
+@media (prefers-reduced-motion: reduce){.pulse{animation:none}}
+button:focus{outline:none}
+@keyframes phPulse{0%,100%{opacity:1}50%{opacity:.35}}
+input.phPulse{animation:phPulse 1.4s ease-in-out infinite}
+input.phPulse::placeholder{color:#f87171}
+@media (prefers-reduced-motion: reduce){input.phPulse{animation:none}}
+</style>
+</helmet>
+<div class="app" style="background: #000; color: #fff; font-family: 'Outfit', system-ui, sans-serif; overflow: hidden; display: flex; flex-direction: column; position: relative">
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div class="hs" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; padding: 28px 0 24px">
+
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 0 16px 0 17px; height: 56px">
+<h1 style="margin: 0; font-size: 34px; font-weight: 600; letter-spacing: -0.5px">Flow</h1>
+<div style="display: flex; align-items: center; gap: 18px">
+<button aria-label="Notificações" style="width: 44px; height: 44px; border: 0; background: transparent; color: #fff; display: flex; align-items: center; justify-content: center; padding: 0">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20.5h4"></path><path d="M12 3v2"></path></svg>
+</button>
+<button aria-label="Conta" style="width: 40px; height: 40px; border-radius: 50%; border: 0; background: #7d7d7d; color: #fff; font-size: 19px; display: flex; align-items: center; justify-content: center; padding: 0">P</button>
+</div>
+</div>
+
+<div class="hs" style="display: flex; gap: 8px; overflow-x: auto; padding: 22px 16px 0; flex-shrink: 0">
+<div style="flex: 0 0 111px; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 111px; height: 160px; border-radius: 14px; background: #bcb7ae; display: flex; align-items: center; justify-content: center; color: #2f4fa8">
+<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"></rect><path d="M16 10.5l5-3v9l-5-3z"></path></svg>
+</div>
+<div style="font-size: 16px; color: #ececec">Editar vídeo</div>
+</div>
+<div style="flex: 0 0 111px; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 111px; height: 160px; border-radius: 14px; background: #f7ddd7; display: flex; align-items: center; justify-content: center; color: #2f57c9">
+<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 16l5-5 4 4 3-3 6 6"></path></svg>
+</div>
+<div style="font-size: 16px; color: #ececec">Editar foto</div>
+</div>
+<div style="flex: 0 0 111px; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 111px; height: 160px; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<div style="flex: 1; background: #e9e9e9; display: flex; align-items: center; justify-content: center; color: #6b6b6b">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>
+</div>
+<div style="flex: 1; background: #141414"></div>
+</div>
+<div style="font-size: 16px; color: #ececec">Usar avatar</div>
+</div>
+<div style="flex: 0 0 111px; display: flex; flex-direction: column; gap: 14px">
+<div style="width: 111px; height: 160px; border-radius: 14px; background: #6f8a5b; display: flex; align-items: center; justify-content: center; color: #e9f1e1">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path></svg>
+</div>
+<div style="font-size: 16px; color: #ececec">Arte</div>
+</div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 36px 16px 16px 17px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 500">Projetos</h2>
+<button class="pulse" onClick="{{ openProject }}" style="height: 47px; padding: 0 24px 0 20px; border: 0; border-radius: 20px; background: #16171a; color: #fff; font-size: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v16M4 12h16"></path></svg>
+Novo
+</button>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 0 16px">
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="width: 111px; height: 95px; border-radius: 12px; background: #0e0f10; display: flex; align-items: center; justify-content: center; color: #6c6d70; flex-shrink: 0">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M6.5 16.5l4-4 3 3 2-2 2 3"></path></svg>
+</div>
+<div style="flex: 1; font-size: 17px">out. 14, 10:22 PM</div>
+<button aria-label="Mais opções" style="width: 44px; height: 44px; border: 0; background: transparent; color: #bdbdbd; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="4" height="18" viewBox="0 0 4 18" fill="currentColor"><circle cx="2" cy="2" r="1.8"></circle><circle cx="2" cy="9" r="1.8"></circle><circle cx="2" cy="16" r="1.8"></circle></svg>
+</button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="width: 111px; height: 95px; border-radius: 12px; background: #3d4a57; flex-shrink: 0"></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 17px">out. 14, 10:12 PM</div>
+<div style="display: flex; align-items: center; gap: 6px; color: #8a8b8e; font-size: 14px">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="1.5"></rect><path d="M16 10.5l5-3v9l-5-3z"></path></svg>
+1
+</div>
+</div>
+<button aria-label="Mais opções" style="width: 44px; height: 44px; border: 0; background: transparent; color: #bdbdbd; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="4" height="18" viewBox="0 0 4 18" fill="currentColor"><circle cx="2" cy="2" r="1.8"></circle><circle cx="2" cy="9" r="1.8"></circle><circle cx="2" cy="16" r="1.8"></circle></svg>
+</button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="width: 111px; height: 95px; border-radius: 12px; background: #0e0f10; display: flex; align-items: center; justify-content: center; color: #6c6d70; flex-shrink: 0">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M6.5 16.5l4-4 3 3 2-2 2 3"></path></svg>
+</div>
+<div style="flex: 1; font-size: 17px">Ingredient Archive</div>
+<button aria-label="Mais opções" style="width: 44px; height: 44px; border: 0; background: transparent; color: #bdbdbd; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="4" height="18" viewBox="0 0 4 18" fill="currentColor"><circle cx="2" cy="2" r="1.8"></circle><circle cx="2" cy="9" r="1.8"></circle><circle cx="2" cy="16" r="1.8"></circle></svg>
+</button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="width: 111px; height: 95px; border-radius: 12px; background: #3a1d33; flex-shrink: 0"></div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 17px">Dec 04 - 11:26</div>
+<div style="display: flex; align-items: center; gap: 6px; color: #8a8b8e; font-size: 14px">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="1.5"></rect><path d="M16 10.5l5-3v9l-5-3z"></path></svg>
+5
+</div>
+</div>
+<button aria-label="Mais opções" style="width: 44px; height: 44px; border: 0; background: transparent; color: #bdbdbd; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="4" height="18" viewBox="0 0 4 18" fill="currentColor"><circle cx="2" cy="2" r="1.8"></circle><circle cx="2" cy="9" r="1.8"></circle><circle cx="2" cy="16" r="1.8"></circle></svg>
+</button>
+</div>
+</div>
+
+</div>
+</sc-if>
+
+<sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+<div style="flex: 1; display: flex; flex-direction: column; min-height: 0">
+
+<div style="display: flex; align-items: center; gap: 10px; padding: 28px 16px 0">
+<button onClick="{{ goHome }}" aria-label="Voltar" style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #1f2023; background: #121315; color: #fff; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; flex-shrink: 0">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5M11 5l-7 7 7 7"></path></svg>
+</button>
+<div style="flex: 1; font-size: 25px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">out. 15, 10:00 PM</div>
+<div style="display: flex; align-items: center; height: 48px; border-radius: 14px; background: #121315; padding: 0 4px">
+<button aria-label="Buscar" style="width: 44px; height: 44px; border: 0; background: transparent; color: #fff; display: flex; align-items: center; justify-content: center; padding: 0">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10" cy="10" r="6.5"></circle><path d="M15 15l5.5 5.5"></path></svg>
+</button>
+<button aria-label="Mais opções" style="width: 40px; height: 44px; border: 0; background: transparent; color: #fff; display: flex; align-items: center; justify-content: center; padding: 0">
+<svg aria-hidden="true" width="4" height="18" viewBox="0 0 4 18" fill="currentColor"><circle cx="2" cy="2" r="1.8"></circle><circle cx="2" cy="9" r="1.8"></circle><circle cx="2" cy="16" r="1.8"></circle></svg>
+</button>
+</div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 0 24px; min-height: 0">
+<sc-if value="{{ showEmpty }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 18px; opacity: {{ emptyOpacity }}">
+<p style="margin: 0; text-align: center; color: #57585c; font-size: 16px; line-height: 1.5">Ainda não há recursos.<br>Crie um ou envie conteúdo da sua galeria.</p>
+<button style="height: 40px; padding: 0 22px; border: 0; border-radius: 20px; background: #111214; color: #6a6b6f; font-size: 16px; display: flex; align-items: center; gap: 10px">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M7 9l5-5 5 5M4 15v4h16v-4"></path></svg>
+Enviar
+</button>
+</div>
+</sc-if>
+</div>
+
+<div style="display: flex; flex-direction: column; flex-shrink: 0">
+<div style="background: #151618; border: 1px solid {{ composerBorder }}; border-radius: {{ composerRadius }}; padding: 26px 22px 20px 26px; display: flex; flex-direction: column; gap: 22px">
+<label for="prompt" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Descreva o que você quer criar</label>
+<input id="prompt" type="text" ref="{{ inputRef }}" class="{{ inputClass }}" placeholder="{{ placeholder }}" onFocus="{{ onFocus }}" onBlur="{{ onBlur }}" onInput="{{ onType }}" style="width: 100%; border: 0; outline: none; background: transparent; color: #fff; font-family: inherit; font-size: 22px; padding: 0">
+<div style="display: flex; align-items: center; gap: 8px">
+<button aria-label="Adicionar" style="width: 44px; height: 44px; border: 0; background: transparent; color: #fff; display: flex; align-items: center; justify-content: center; padding: 0; margin-left: -10px">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M4 12h16"></path></svg>
+</button>
+<div style="flex: 1"></div>
+<button class="{{ pillClass }}" onClick="{{ toggleMenu }}" aria-label="Configurações de geração" style="height: 47px; padding: 0 22px; border-radius: 24px; border: 1px solid #3a3b3f; background: #2a2b2e; color: #c9cacd; font-size: 15px; display: flex; align-items: center; gap: 12px; cursor: pointer">
+{{ modeLabel }}
+<span style="display: block; width: {{ pillW }}px; height: {{ pillH }}px; border: 1.8px solid currentColor; border-radius: 2px; box-sizing: border-box"></span>
+<span>x{{ count }}</span>
+</button>
+<button aria-label="Gerar" style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #2b2c2f; background: transparent; color: #7c7d81; display: flex; align-items: center; justify-content: center; padding: 0">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+</button>
+</div>
+</div>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="background: #17181a; border: 1px solid #2a2b2e; border-bottom: 0; border-radius: 28px 28px 0 0; margin-top: 12px; padding: 16px 9px 12px; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: center; font-size: 13px; color: #b9babe; padding-bottom: 12px">A geração vai usar <span style="color: #fff; font-weight: 600; text-decoration: underline">{{ credits }} créditos de IA</span></div>
+
+<div style="display: flex; gap: 4px; background: #212226; border-radius: 16px; padding: 3px">
+<button onClick="{{ pickImage }}" style="flex: 1; height: 48px; border: 0; border-radius: 13px; background: {{ imgTabBg }}; color: {{ imgTabFg }}; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M6 17l4-4 3 3 2-2 3 3"></path></svg>
+Imagem
+</button>
+<button class="{{ vidTabClass }}" onClick="{{ pickVideo }}" style="flex: 1; height: 48px; border: 0; border-radius: 13px; background: {{ vidTabBg }}; color: {{ vidTabFg }}; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer">
+<svg aria-hidden="true" width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="5" width="14" height="14" rx="2"></rect><path d="M16 10l6-3.5v11L16 14z"></path></svg>
+Vídeo
+</button>
+</div>
+
+<sc-if value="{{ showRows }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<sc-if value="{{ isImage }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; gap: 4px; background: #212226; border-radius: 16px; padding: 3px">
+<sc-for list="{{ imgAspects }}" as="a" hint-placeholder-count="5">
+<button onClick="{{ a.pick }}" style="flex: 1; height: 58px; border: 0; border-radius: 13px; background: {{ a.bg }}; color: {{ a.fg }}; font-size: 13px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer">
+<span style="display: block; width: {{ a.w }}px; height: {{ a.h }}px; border: 2px solid currentColor; border-radius: 3px; box-sizing: border-box"></span>
+{{ a.label }}
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isVideo }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; gap: 4px; background: #212226; border-radius: 16px; padding: 3px">
+<sc-for list="{{ vidAspects }}" as="a" hint-placeholder-count="2">
+<button class="{{ a.cls }}" onClick="{{ a.pick }}" style="flex: 1; height: 48px; border: 0; border-radius: 13px; background: {{ a.bg }}; color: {{ a.fg }}; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer">
+<span style="display: block; width: {{ a.w }}px; height: {{ a.h }}px; border: 2px solid currentColor; border-radius: 3px; box-sizing: border-box"></span>
+{{ a.label }}
+</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 4px; background: #212226; border-radius: 16px; padding: 3px">
+<sc-for list="{{ resolutions }}" as="r" hint-placeholder-count="2">
+<button class="{{ r.cls }}" onClick="{{ r.pick }}" style="flex: 1; height: 48px; border: 0; border-radius: 13px; background: {{ r.bg }}; color: {{ r.fg }}; font-size: 16px; cursor: pointer">{{ r.label }}</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<div style="display: flex; gap: 4px; background: #212226; border-radius: 16px; padding: 3px">
+<sc-for list="{{ counts }}" as="c" hint-placeholder-count="4">
+<button class="{{ c.cls }}" onClick="{{ c.pick }}" style="flex: 1; height: 48px; border: 0; border-radius: 13px; background: {{ c.bg }}; color: {{ c.fg }}; font-size: 16px; cursor: pointer">{{ c.label }}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{ isVideo }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 4px; background: #212226; border-radius: 16px; padding: 3px">
+<sc-for list="{{ durations }}" as="d" hint-placeholder-count="4">
+<button class="{{ d.cls }}" onClick="{{ d.pick }}" style="flex: 1; height: 48px; border: 0; border-radius: 13px; background: {{ d.bg }}; color: {{ d.fg }}; font-size: 16px; cursor: pointer">{{ d.label }}</button>
+</sc-for>
+</div>
+</sc-if>
+
+</div>
+</sc-if>
+
+<sc-if value="{{ modelOpenImage }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 4px 0">
+<sc-for list="{{ imgModels }}" as="m" hint-placeholder-count="3">
+<button onClick="{{ m.pick }}" style="height: 50px; border: 0; border-radius: 16px; background: {{ m.bg }}; color: #fff; font-size: 17px; display: flex; align-items: center; gap: 8px; padding: 0 0 0 52px; text-align: left; cursor: pointer">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><path d="M4 18.5c6.5 1.5 13-2.5 14-11l1-2.5-2-1-1 2.5c-.5 6-5.5 10-11.5 10-1 0-1.5.4-1.5 1z" fill="#f4c430"></path><path d="M17.5 4.5l.8-2" stroke="#7a5520" stroke-width="2" stroke-linecap="round"></path></svg>
+{{ m.label }}
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ modelOpenVideo }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 0">
+<sc-for list="{{ vidModels }}" as="m" hint-placeholder-count="3">
+<button class="{{ m.cls }}" onClick="{{ m.pick }}" style="height: 50px; border: 0; border-radius: 16px; background: {{ m.bg }}; color: #fff; display: flex; align-items: center; gap: 22px; padding: 0 16px 0 18px; text-align: left; cursor: pointer">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M16.5 9a4 4 0 0 1 0 6"></path><path d="M19 6.5a7.5 7.5 0 0 1 0 11"></path></svg>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px">{{ m.label }}</span>
+<span style="font-size: 13px; color: #a9aaae">{{ m.sub }}</span>
+</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<button class="{{ modelClass }}" onClick="{{ toggleModel }}" aria-label="Escolher modelo" style="height: 54px; border: 0; border-radius: 16px; background: #212226; color: #fff; font-size: 17px; position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer">
+<sc-if value="{{ isImage }}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><path d="M4 18.5c6.5 1.5 13-2.5 14-11l1-2.5-2-1-1 2.5c-.5 6-5.5 10-11.5 10-1 0-1.5.4-1.5 1z" fill="#f4c430"></path><path d="M17.5 4.5l.8-2" stroke="#7a5520" stroke-width="2" stroke-linecap="round"></path></svg>
+</sc-if>
+{{ model }}
+<sc-if value="{{ modelOpen }}" hint-placeholder-val="{{ false }}">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="position: absolute; right: 24px; top: 18px"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+</sc-if>
+<sc-if value="{{ modelClosed }}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" width="12" height="8" viewBox="0 0 12 8" fill="currentColor" style="position: absolute; right: 26px; top: 23px"><path d="M0 0h12L6 7z"></path></svg>
+</sc-if>
+</button>
+</div>
+</sc-if>
+</div>
+
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      screen: 'home', menu: false, focused: false, modelOpen: false,
+      mode: 'image', imgAspect: '9:16', imgCount: 1, imgModel: 'Nano Banana 2.1',
+      vidAspect: '9:16', res: '360p', vidCount: 1, dur: '8s', vidModel: 'Omni 1.1 Flash'
+    };
+  }
+  renderVals() {
+    const s = this.state;
+    const ON_BG = '#2f3034', ON_FG = '#ffffff', OFF_BG = 'transparent', OFF_FG = '#8b8c90';
+    const seg = (on) => ({ bg: on ? ON_BG : OFF_BG, fg: on ? ON_FG : OFF_FG });
+    const set = (patch) => () => this.setState(patch);
+    const isImage = s.mode === 'image';
+    const dims = { '16:9': [18, 11], '4:3': [17, 13], '1:1': [14, 14], '3:4': [13, 17], '9:16': [11, 18] };
+    const aspect = isImage ? s.imgAspect : s.vidAspect;
+    const count = isImage ? s.imgCount : s.vidCount;
+    const pillDims = { '16:9': [16, 10], '4:3': [14, 11], '1:1': [12, 12], '3:4': [11, 14], '9:16': [10, 16] }[aspect];
+    const vidModelList = [['Omni 1.1 Flash', 6], ['Veo 3.1 - Lite', 10], ['Veo 3.1 - Fast', 20]];
+    const vidCost = (vidModelList.find((m) => m[0] === s.vidModel) || vidModelList[0])[1];
+    const model = isImage ? s.imgModel : s.vidModel;
+    const isProject = s.screen === 'project';
+    const menuOpen = isProject && s.menu;
+    return {
+      isHome: s.screen === 'home',
+      isProject,
+      menuOpen,
+      isImage,
+      isVideo: !isImage,
+      showEmpty: isProject && !s.menu,
+      emptyOpacity: s.focused ? 0.35 : 1,
+      modelOpen: menuOpen && s.modelOpen,
+      modelClosed: !(menuOpen && s.modelOpen),
+      showRows: !s.modelOpen,
+      modelOpenImage: menuOpen && s.modelOpen && isImage,
+      modelOpenVideo: menuOpen && s.modelOpen && !isImage,
+      composerBorder: s.focused ? '#3a3b3f' : '#151618',
+      composerRadius: s.focused ? '40px' : (s.menu ? '40px' : '40px 40px 0 0'),
+      modeLabel: isImage ? 'Imagem' : 'Vídeo',
+      pillW: pillDims[0], pillH: pillDims[1],
+      count,
+      credits: isImage ? 0 : vidCost * s.vidCount,
+      model,
+      openProject: set({ screen: 'project', menu: false, focused: false, modelOpen: false }),
+      goHome: set({ screen: 'home', menu: false, focused: false, modelOpen: false }),
+      toggleMenu: () => this.setState({ menu: !this.state.menu, modelOpen: false }),
+      onFocus: set({ focused: true, menu: false, modelOpen: false }),
+      onBlur: set({ focused: false }),
+      toggleModel: () => this.setState({ modelOpen: !this.state.modelOpen }),
+      pickImage: set({ mode: 'image', modelOpen: false }),
+      pickVideo: set({ mode: 'video', modelOpen: false }),
+      imgTabBg: seg(isImage).bg, imgTabFg: seg(isImage).fg,
+      vidTabBg: seg(!isImage).bg, vidTabFg: seg(!isImage).fg,
+      vidTabClass: !isImage && s.modelOpen ? '' : 'pulse',
+      pillClass: s.menu || s.guided ? '' : 'pulse',
+      placeholder: s.guided ? 'Cole o texto copiado aqui' : 'O que você quer fazer?',
+      inputClass: s.guided && !s.typed ? 'phPulse' : '',
+      inputRef: (el) => { this.inputEl = el; },
+      onType: (e) => this.setState({ typed: e.target.value.length > 0 }),
+      modelClass: isImage || s.modelOpen ? '' : 'pulse',
+      imgAspects: ['16:9', '4:3', '1:1', '3:4', '9:16'].map((k) => ({
+        label: k, w: dims[k][0], h: dims[k][1], ...seg(s.imgAspect === k), pick: set({ imgAspect: k })
+      })),
+      vidAspects: ['16:9', '9:16'].map((k) => ({
+        label: k, w: k === '16:9' ? 18 : 11, h: k === '16:9' ? 11 : 18, ...seg(s.vidAspect === k), cls: k === '9:16' ? 'pulse' : '', pick: set({ vidAspect: k })
+      })),
+      resolutions: ['360p', '720p'].map((k) => ({ label: k, ...seg(s.res === k), cls: k === '360p' ? 'pulse' : '', pick: set({ res: k }) })),
+      counts: [1, 2, 3, 4].map((n) => ({
+        label: 'x' + n, ...seg(count === n), cls: !isImage && n === 1 ? 'pulse' : '', pick: set(isImage ? { imgCount: n } : { vidCount: n })
+      })),
+      durations: ['4s', '6s', '8s', '10s'].map((k) => ({ label: k, ...seg(s.dur === k), cls: k === '10s' ? 'pulse' : '', pick: set({ dur: k }) })),
+      imgModels: ['Nano Banana Pro', 'Nano Banana 2 Lite', 'Nano Banana 2.1'].map((k) => ({
+        label: k, bg: s.imgModel === k ? '#2e2f33' : 'transparent', pick: set({ imgModel: k, modelOpen: false })
+      })),
+      vidModels: vidModelList.map(([k, c]) => ({
+        label: k, sub: c + ' créditos / video', cls: k === 'Veo 3.1 - Lite' ? 'pulse' : '', bg: s.vidModel === k ? '#2e2f33' : 'transparent', pick: k === 'Veo 3.1 - Lite'
+          ? () => { this.setState({ vidModel: k, modelOpen: false, menu: false, focused: true, guided: true, typed: false }); if (this.inputEl) this.inputEl.focus(); }
+          : set({ vidModel: k, modelOpen: false })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
