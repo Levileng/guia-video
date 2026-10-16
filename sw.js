@@ -1,5 +1,5 @@
 // Rede primeiro (sempre a versão mais nova); sem internet, usa o que ficou guardado.
-const CACHE = 'guia-video-v1';
+const CACHE = 'guia-video-v2';
 const BASE = ['./', 'index.html', 'support.js', 'vendor/react.js', 'vendor/react-dom.js',
   'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 
